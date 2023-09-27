@@ -44,6 +44,7 @@ cd /workspace/stable-diffusion-webui/models/Stable-diffusion
 wget -O general_v3.safetensors https://civitai.com/api/download/models/156110
 wget -O anime.safetensors https://civitai.com/api/download/models/156110
 wget -O 3dAnimationDiffusion_v10.safetensors https://civitai.com/api/download/models/128046
+wget -O semi-realistic_v8.safetensors https://civitai.com/api/download/models/128713
 
 echo "Downloading ControlNet models"
 mkdir -p /workspace/stable-diffusion-webui/models/ControlNet

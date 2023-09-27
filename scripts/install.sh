@@ -39,9 +39,11 @@ echo "Installing RunPod Serverless dependencies"
 cd /workspace/stable-diffusion-webui
 pip3 install huggingface_hub runpod>=0.10.0
 
-echo "Downloading Deliberate v2 model"
+echo "Downloading Stable Diffusion models"
 cd /workspace/stable-diffusion-webui/models/Stable-diffusion
 wget -O general_v3.safetensors https://civitai.com/api/download/models/156110
+wget -O anime.safetensors https://civitai.com/api/download/models/156110
+wget -O 3dAnimationDiffusion_v10.safetensors https://civitai.com/api/download/models/128046
 
 echo "Downloading ControlNet models"
 mkdir -p /workspace/stable-diffusion-webui/models/ControlNet

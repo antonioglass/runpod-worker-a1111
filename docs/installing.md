@@ -17,7 +17,7 @@ manually below, and then you don't need to follow any of the
 manual instructions.
 
 ```bash
-wget https://raw.githubusercontent.com/ashleykleynhans/runpod-worker-a1111/main/scripts/install.sh
+wget https://raw.githubusercontent.com/antonioglass/runpod-worker-a1111/main/scripts/install.sh
 chmod +x install.sh
 ./install.sh
 ```
@@ -31,7 +31,7 @@ automatic installation script above.
 ```bash
 # Clone the repo
 cd /workspace
-git clone --depth=1 https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+git clone --depth=1 https://github.com/antonioglass/stable-diffusion-webui.git
 
 # Upgrade Python
 apt update
@@ -50,7 +50,7 @@ pip install --no-cache-dir torch torchvision torchaudio --index-url https://down
 pip install --no-cache-dir xformers
 
 # Install A1111 Web UI
-wget https://raw.githubusercontent.com/ashleykleynhans/runpod-worker-a1111/main/install-automatic.py
+wget https://raw.githubusercontent.com/antonioglass/runpod-worker-a1111/main/install-automatic.py
 python -m install-automatic --skip-torch-cuda-test
 
 # Clone the ControlNet Extension
@@ -84,9 +84,9 @@ mkdir -p /workspace/logs
 ```bash
 cd /workspace/stable-diffusion-webui
 rm webui-user.sh config.json ui-config.json
-wget https://raw.githubusercontent.com/ashleykleynhans/runpod-worker-a1111/main/webui-user.sh
-wget https://raw.githubusercontent.com/ashleykleynhans/runpod-worker-a1111/main/config.json
-wget https://raw.githubusercontent.com/ashleykleynhans/runpod-worker-a1111/main/ui-config.json
+wget https://raw.githubusercontent.com/antonioglass/runpod-worker-a1111/main/webui-user.sh
+wget https://raw.githubusercontent.com/antonioglass/runpod-worker-a1111/main/config.json
+wget https://raw.githubusercontent.com/antonioglass/runpod-worker-a1111/main/ui-config.json
 ```
 7. Run the Web UI:
 ```bash

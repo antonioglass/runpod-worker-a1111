@@ -13,7 +13,7 @@ If you choose to build it yourself:
 2. Build the Docker image on your local machine and push to Docker hub:
 ```bash
 # Clone the repo
-git clone https://github.com/ashleykleynhans/runpod-worker-a1111.git
+git clone https://github.com/antonioglass/runpod-worker-a1111.git
 cd runpod-worker-a1111
 
 # Build and push

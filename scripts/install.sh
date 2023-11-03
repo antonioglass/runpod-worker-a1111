@@ -29,7 +29,7 @@ wget https://raw.githubusercontent.com/antonioglass/runpod-worker-a1111/main/ins
 python -m install-automatic --skip-torch-cuda-test
 
 echo "Cloning ControlNet extension repo"
-git clone https://github.com/Mikubill/sd-webui-controlnet.git extensions/sd-webui-controlnet
+git clone https://github.com/antonioglass/sd-webui-controlnet.git extensions/sd-webui-controlnet
 
 echo "Installing dependencies for ControlNet"
 cd extensions/sd-webui-controlnet

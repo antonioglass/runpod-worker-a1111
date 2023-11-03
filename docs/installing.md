@@ -65,16 +65,16 @@ pip install -r requirements.txt
 cd /workspace/stable-diffusion-webui
 pip3 install huggingface_hub runpod>=0.10.0
 ```
-3. Download some models, for example `Deliberate v2`:
+3. Download some models, for example `epiCPhotoGasm - Y - Photoreal`:
 ```bash
 cd /workspace/stable-diffusion-webui/models/Stable-diffusion
-wget -O deliberate_v2.safetensors https://civitai.com/api/download/models/15236
+wget https://civitai.com/api/download/models/197181 --content-disposition
 ```
-4. Download ControlNet models, for example `canny`:
+4. Download ControlNet model for poses `OpenPose`:
 ```bash
 mkdir -p /workspace/stable-diffusion-webui/models/ControlNet
 cd /workspace/stable-diffusion-webui/models/ControlNet
-wget https://huggingface.co/lllyasviel/ControlNet-v1-1/resolve/main/control_v11p_sd15_canny.pth
+wget https://civitai.com/api/download/models/44811 --content-disposition
 ```
 5. Create logs directory:
 ```bash

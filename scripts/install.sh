@@ -48,6 +48,13 @@ mkdir -p /workspace/stable-diffusion-webui/models/ControlNet
 cd /workspace/stable-diffusion-webui/models/ControlNet
 wget https://civitai.com/api/download/models/44811 --content-disposition
 
+echo "Downloading Upscalers"
+mkdir -p /workspace/stable-diffusion-webui/models/ESRGAN
+cd /workspace/stable-diffusion-webui/models/ESRGAN
+wget https://huggingface.co/antonioglass/upscalers/resolve/main/4x-AnimeSharp.pth
+wget https://huggingface.co/antonioglass/upscalers/resolve/main/4x_NMKD-Siax_200k.pth
+wget https://huggingface.co/antonioglass/upscalers/resolve/main/8x_NMKD-Superscale_150000_G.pth
+
 echo "Creating log directory"
 mkdir -p /workspace/logs
 

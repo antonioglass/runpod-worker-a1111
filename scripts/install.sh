@@ -30,7 +30,7 @@ python -m install-automatic --skip-torch-cuda-test
 
 echo "Cloning ControlNet extension repo"
 cd /workspace/stable-diffusion-webui
-git clone https://github.com/antonioglass/sd-webui-controlnet.git extensions/sd-webui-controlnet
+git clone --depth=1 https://github.com/Mikubill/sd-webui-controlnet.git extensions/sd-webui-controlnet
 
 echo "Cloning the ReActor extension repo"
 git clone --depth=1 https://github.com/Gourieff/sd-webui-reactor.git extensions/sd-webui-reactor
@@ -69,6 +69,8 @@ echo "Downloading ControlNet models"
 mkdir -p /workspace/stable-diffusion-webui/models/ControlNet
 cd /workspace/stable-diffusion-webui/models/ControlNet
 wget https://huggingface.co/antonioglass/controlnet/resolve/main/controlnet11Models_openpose.safetensors
+wget https://huggingface.co/antonioglass/controlnet/raw/main/controlnet11Models_openpose.yaml
+wget https://huggingface.co/antonioglass/controlnet/resolve/main/control_v11p_sd15_inpaint.pth
 wget https://huggingface.co/antonioglass/controlnet/raw/main/controlnet11Models_openpose.yaml
 
 echo "Downloading Upscalers"

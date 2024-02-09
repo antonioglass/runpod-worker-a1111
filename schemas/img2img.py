@@ -18,6 +18,11 @@ IMG2IMG_SCHEMA = {
         'required': False,
         'default': 0
     },
+    'mask': {
+        'type': str,
+        'required': False,
+        'default': ''
+    },
     'mask_blur': {
         'type': int,
         'required': False,

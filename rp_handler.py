@@ -2,9 +2,11 @@ import time
 import requests
 import base64
 import io
+import os
 import runpod
 from runpod.serverless.utils.rp_validator import validate
 from runpod.serverless.modules.rp_logger import RunPodLogger
+from runpod.serverless.utils.rp_upload import upload_in_memory_object
 from requests.adapters import HTTPAdapter, Retry
 from schemas.api import API_SCHEMA
 from schemas.img2img import IMG2IMG_SCHEMA
@@ -108,6 +110,11 @@ def process_image_fields(payload):
     if 'mask' in payload and is_url(payload['mask']):
         payload['mask'] = convert_image_to_base64(payload['mask'])
 
+    if 'alwayson_scripts' in payload and 'reactor' in payload['alwayson_scripts']:
+        first_arg = payload['alwayson_scripts']['reactor']['args'][0]
+        if is_url(first_arg):
+            payload['alwayson_scripts']['reactor']['args'][0] = convert_image_to_base64(first_arg)
+
 
 # ---------------------------------------------------------------------------- #
 #                                RunPod Handler                                #
@@ -145,6 +152,12 @@ def handler(event):
         return {
             'error': str(e)
         }
+
+    if os.environ.get('BUCKET_ENDPOINT_URL', False):
+        image_data = base64.b64decode(response.json()['images'][0])
+        file_name = f"{int(time.time())}.png"
+        upload_url = upload_in_memory_object(file_name, image_data)
+        return {'image_url': upload_url}
 
     return response.json()
 

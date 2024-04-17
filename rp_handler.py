@@ -108,13 +108,20 @@ def process_image_fields(payload):
             convert_image_to_base64(image) if is_url(image) else image
             for image in payload['init_images']
         ]
+    
     if 'mask' in payload and is_url(payload['mask']):
         payload['mask'] = convert_image_to_base64(payload['mask'])
 
-    if 'alwayson_scripts' in payload and 'reactor' in payload['alwayson_scripts']:
-        first_arg = payload['alwayson_scripts']['reactor']['args'][0]
-        if is_url(first_arg):
-            payload['alwayson_scripts']['reactor']['args'][0] = convert_image_to_base64(first_arg)
+    if 'alwayson_scripts' in payload:
+        if 'reactor' in payload['alwayson_scripts']:
+            first_arg = payload['alwayson_scripts']['reactor']['args'][0]
+            if is_url(first_arg):
+                payload['alwayson_scripts']['reactor']['args'][0] = convert_image_to_base64(first_arg)
+
+        if 'controlnet' in payload['alwayson_scripts']:
+            input_image = payload['alwayson_scripts']['controlnet']['args']['input_image']
+            if is_url(input_image):
+                payload['alwayson_scripts']['controlnet']['args']['input_image'] = convert_image_to_base64(input_image)
 
 
 # ---------------------------------------------------------------------------- #

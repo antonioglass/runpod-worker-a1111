@@ -1,5 +1,7 @@
 import time
 import requests
+import base64
+import io
 import runpod
 from runpod.serverless.utils.rp_validator import validate
 from runpod.serverless.modules.rp_logger import RunPodLogger
@@ -89,6 +91,23 @@ def validate_payload(event):
 
     return endpoint, event['input']['api']['method'], validated_input
 
+def is_url(s):
+    return s.startswith('http://') or s.startswith('https://')
+
+def convert_image_to_base64(url):
+    response = requests.get(url)
+    response.raise_for_status()  # Ensure that the request was successful
+    return base64.b64encode(response.content).decode('utf-8')
+
+def process_image_fields(payload):
+    if 'init_images' in payload:
+        payload['init_images'] = [
+            convert_image_to_base64(image) if is_url(image) else image
+            for image in payload['init_images']
+        ]
+    if 'mask' in payload and is_url(payload['mask']):
+        payload['mask'] = convert_image_to_base64(payload['mask'])
+
 
 # ---------------------------------------------------------------------------- #
 #                                RunPod Handler                                #
@@ -112,6 +131,8 @@ def handler(event):
         payload = validated_input['validated_input']
     else:
         payload = validated_input
+
+    process_image_fields(payload)
 
     try:
         logger.log(f'Sending {method} request to: /{endpoint}')

@@ -164,7 +164,8 @@ def handler(event):
     if os.environ.get('BUCKET_ENDPOINT_URL', False):
         image_data = base64.b64decode(response.json()['images'][0])
         file_name = f"{int(time.time())}_{random.randint(1000, 9999)}.png"
-        upload_url = upload_in_memory_object(file_name, image_data)
+        bucket_name = "output_images"
+        upload_url = upload_in_memory_object(file_name, image_data, bucket_name=bucket_name)
         return {'image_url': upload_url}
 
     return response.json()

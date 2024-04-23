@@ -64,6 +64,10 @@ wget https://huggingface.co/antonioglass/models/resolve/main/epicphotogasm_y.saf
 wget https://huggingface.co/antonioglass/models/resolve/main/general_v3.safetensors
 wget https://huggingface.co/antonioglass/models/resolve/main/meinahentai_v4.safetensors
 wget https://huggingface.co/antonioglass/models/resolve/main/semi-realistic_v6.safetensors
+wget https://huggingface.co/antonioglass/models/resolve/main/Deliberate_v3-inpainting.safetensors
+wget https://huggingface.co/antonioglass/models/resolve/main/dreamshaper_631Inpainting.safetensors
+wget https://huggingface.co/antonioglass/models/resolve/main/epicphotogasm_z-inpainting.safetensors
+wget https://huggingface.co/antonioglass/models/resolve/main/meinahentai_v4-inpainting.safetensors
 
 echo "Downloading ControlNet models"
 mkdir -p /workspace/stable-diffusion-webui/models/ControlNet

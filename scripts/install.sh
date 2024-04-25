@@ -58,6 +58,7 @@ cd /workspace/stable-diffusion-webui
 pip3 install huggingface_hub runpod
 
 echo "Downloading Stable Diffusion models"
+# wget  --header="Authorization: Bearer HF_TOKEN"
 cd /workspace/stable-diffusion-webui/models/Stable-diffusion
 wget https://huggingface.co/antonioglass/models/resolve/main/3dAnimationDiffusion_v10.safetensors
 wget https://huggingface.co/antonioglass/models/resolve/main/epicphotogasm_y.safetensors

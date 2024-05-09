@@ -36,7 +36,7 @@ echo "Cloning the ReActor extension repo"
 git clone --depth=1 https://github.com/Gourieff/sd-webui-reactor.git extensions/sd-webui-reactor
 
 echo "Cloning a person mask generator extension repo"
-git clone --depth=1 https://github.com/djbielejeski/a-person-mask-generator.git
+git clone --depth=1 https://github.com/djbielejeski/a-person-mask-generator.git extensions/a-person-mask-generator
 
 echo "Installing dependencies for ControlNet"
 cd /workspace/stable-diffusion-webui/extensions/sd-webui-controlnet

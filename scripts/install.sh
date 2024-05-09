@@ -35,6 +35,9 @@ git clone --depth=1 https://github.com/Mikubill/sd-webui-controlnet.git extensio
 echo "Cloning the ReActor extension repo"
 git clone --depth=1 https://github.com/Gourieff/sd-webui-reactor.git extensions/sd-webui-reactor
 
+echo "Cloning a person mask generator extension repo"
+git clone --depth=1 https://github.com/djbielejeski/a-person-mask-generator.git
+
 echo "Installing dependencies for ControlNet"
 cd /workspace/stable-diffusion-webui/extensions/sd-webui-controlnet
 pip3 install -r requirements.txt
@@ -45,6 +48,10 @@ pip3 install protobuf==3.20.3
 pip3 install -r requirements.txt
 pip3 install onnxruntime-gpu==1.16.3
 
+echo "Installing dependencies for ControlNet"
+cd /workspace/stable-diffusion-webui/extensions/a-person-mask-generator
+pip3 install -r requirements.txt
+
 echo "Installing the model for ReActor"
 mkdir -p /workspace/stable-diffusion-webui/models/insightface
 cd /workspace/stable-diffusion-webui/models/insightface
@@ -52,6 +59,11 @@ wget https://huggingface.co/antonioglass/reactor/resolve/main/inswapper_128.onnx
 
 echo "Configuring ReActor to use the GPU instead of CPU"
 echo "CUDA" > /workspace/stable-diffusion-webui/extensions/sd-webui-reactor/last_device.txt
+
+echo "Installing the model for a person mask generator"
+mkdir -p /workspace/stable-diffusion-webui/models/mediapipe
+cd /workspace/stable-diffusion-webui/models/mediapipe
+wget https://storage.googleapis.com/mediapipe-models/image_segmenter/selfie_multiclass_256x256/float32/latest/selfie_multiclass_256x256.tflite
 
 echo "Installing RunPod Serverless dependencies"
 cd /workspace/stable-diffusion-webui
